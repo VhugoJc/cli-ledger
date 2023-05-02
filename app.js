@@ -1,17 +1,18 @@
 #!/usr/bin/env node
 const yargs = require('yargs/yargs')
 const { hideBin } = require('yargs/helpers')
+const { register } = require('./helpers/functions')
 const argv = yargs(hideBin(process.argv)).argv
 
 const main = () => {
   if(argv._.includes('register')){
-    console.log("Register");
+    return register();
   }
   if(argv._.includes('balance')){
-    console.log("Balance");
+    return console.log("Balance");
   }
   if(argv._.includes('print')){
-    console.log("Print");
+    return console.log("Print");
   }
   
 }
