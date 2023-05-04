@@ -1,5 +1,7 @@
 const fs = require('fs');
 const path = require('path');
+const { getDataFromFile } = require('../middlewares/FilesData');
+const { printRegister } = require('./outputs');
 
 const pathIncome = '../files/Income.ledger';
 const pathBitcoin = '../files/Bitcoin.ledger';
@@ -14,7 +16,8 @@ const register = () => {
             console.error(err);
             return;
         }
-        console.log(data);
+        const fileData = getDataFromFile(data);
+        printRegister(fileData);
     });
 }
 const balance = () => {
