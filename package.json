@@ -12,6 +12,7 @@
   "dependencies": {
     "colors": "^1.4.0",
     "figlet": "^1.6.0",
+    "moment": "^2.29.4",
     "uuid": "^9.0.0",
     "yargs": "^17.7.2"
   }
