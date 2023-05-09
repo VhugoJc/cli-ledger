@@ -12,7 +12,7 @@ const main = () => {
     return balance(argv);
   }
   if(argv._.includes('print')){
-    return print();
+    return print(argv);
     
   }
   

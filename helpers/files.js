@@ -7,7 +7,8 @@ const { getAllFilesData } = require('./data');
 
 
 const register = (argv) => {
-    getAllFilesData((files)=>{
+    
+    getAllFilesData(argv.file,(files)=>{
         let array = [] ; 
         files.forEach(file=>{ 
             const fileData = getDataFromFile(file);
@@ -15,7 +16,7 @@ const register = (argv) => {
                 array.push(object);
             })
         })
-
+        
         if(argv.sort){
             array = orderArrayByDate(array);
         }
@@ -24,7 +25,7 @@ const register = (argv) => {
     });
 }
 const balance = (argv) => {
-    getAllFilesData((files)=>{
+    getAllFilesData(argv.file,(files)=>{
         let array = [] ; 
         files.forEach(file=>{ 
             const fileData = getDataFromFile(file);
@@ -39,8 +40,8 @@ const balance = (argv) => {
         balanceOutput(array);
     })
 }
-const print = () => {
-    getAllFilesData((files)=>{
+const print = (argv) => {
+    getAllFilesData(argv.file,(files)=>{
         let array = [] ; 
         files.forEach(file=>{ 
             const fileData = getDataFromFile(file);

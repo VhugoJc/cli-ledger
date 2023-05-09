@@ -11,17 +11,23 @@ const getDataDir = async () => {
     }
 }
 
-const getAllFilesData = (callback) => {
+const getAllFilesData = (file,callback) => {
     let dataFile = [];
-    getDataDir().then(data => {
-        if (data) {
-            data.forEach(fileName => {
-                const file = fs.readFileSync(path.resolve(__dirname, '../files/' + fileName), 'utf8');
-                dataFile.push(file);
-            })
-            callback(dataFile)
-        }
-    });
+    if(typeof file!=='undefined'){
+        const fileData = fs.readFileSync(path.resolve(__dirname, '../files/' + file), 'utf8');
+        dataFile.push(fileData);
+        callback(dataFile)
+    }else{
+        getDataDir().then(data => {
+            if (data) {
+                data.forEach(fileName => {
+                    const file = fs.readFileSync(path.resolve(__dirname, '../files/' + fileName), 'utf8');
+                    dataFile.push(file);
+                })
+                callback(dataFile)
+            }
+        });
+    }
 }
 
 module.exports = {
