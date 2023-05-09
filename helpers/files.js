@@ -11,7 +11,7 @@ const register = (argv) => {
     getAllFilesData(argv.file,(files)=>{
         let array = [] ; 
         files.forEach(file=>{ 
-            const fileData = getDataFromFile(file);
+            const fileData = getDataFromFile(argv.priceDb,file);
             fileData.forEach(object=>{
                 array.push(object);
             })
@@ -28,7 +28,7 @@ const balance = (argv) => {
     getAllFilesData(argv.file,(files)=>{
         let array = [] ; 
         files.forEach(file=>{ 
-            const fileData = getDataFromFile(file);
+            const fileData = getDataFromFile(argv.priceDb,file);
             fileData.forEach(object=>{
                 array.push(object);
             })
@@ -41,10 +41,11 @@ const balance = (argv) => {
     })
 }
 const print = (argv) => {
+    console.log(argv);
     getAllFilesData(argv.file,(files)=>{
         let array = [] ; 
         files.forEach(file=>{ 
-            const fileData = getDataFromFile(file);
+            const fileData = getDataFromFile(argv.priceDb,file);
             fileData.forEach(object=>{
                 array.push(object);
             })

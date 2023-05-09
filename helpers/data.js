@@ -30,6 +30,12 @@ const getAllFilesData = (file,callback) => {
     }
 }
 
+const getPriceDBFile = (fileName,callback) => {
+    const fileData = fs.readFileSync(path.resolve(__dirname, '../db/' + fileName), 'utf8');
+    callback(fileData)
+}
+
 module.exports = {
-    getAllFilesData
+    getAllFilesData,
+    getPriceDBFile
 }
