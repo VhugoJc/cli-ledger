@@ -10,7 +10,7 @@ const stringSizeLimit = (string) => {
     return shortString
 }
 
-const printRegister = (data) => {
+const registerOutput = (data) => {
     data.map(item=>{
         console.log(
             `${ moment(item.date,'yyyy/MM/DD').format("YY-MMM-DD ").grey.padEnd(20)} `+
@@ -31,6 +31,26 @@ const printRegister = (data) => {
     })
 }
 
+const printOutput = (data) => {
+    data.map(item=>{
+        console.log(
+            `${ item.date} `+
+            `${ item.concept} `+ '\n'+
+            `${''.padEnd(2) + item.secondLine[0].padEnd(30)} ` +
+            `${ item.secondLine[1]} ` + '\n'+
+            `${''.padEnd(2)+item.thirdLine[0].padEnd(30)} ` +
+            `${
+                item.thirdLine[1]
+                ? item?.thirdLine[1]?.padEnd(20)
+                : ''.padEnd(20)
+            }`
+            + '\n'
+        );
+
+    })
+}
+
 module.exports = {
-    printRegister
+    registerOutput,
+    printOutput
 }
