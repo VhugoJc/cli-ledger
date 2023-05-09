@@ -1,23 +1,22 @@
 const fs = require('fs');
 const path = require('path');
-const { getDataFromFile } = require('../middlewares/FilesData');
+const { getDataFromFile, orderArrayByDate } = require('../middlewares/FilesData');
 const { printRegister } = require('./outputs');
+const { getAllFilesData } = require('./data');
 
-const pathIncome = '../files/Income.ledger';
-const pathBitcoin = '../files/Bitcoin.ledger';
-const pathExpenses = '../files/Expenses.ledger';
-const pathPayable = '../files/Payable.ledger';
-const pathReceivable = '../files/Receivable.ledger';
 
 
 const register = () => {
-    fs.readFile(path.resolve(__dirname,pathIncome), 'utf8', (err, data) => {
-        if (err) {
-            console.error(err);
-            return;
-        }
-        const fileData = getDataFromFile(data);
-        printRegister(fileData);
+    getAllFilesData((files)=>{
+        let array = [] ; 
+        files.forEach(file=>{ 
+            const fileData = getDataFromFile(file);
+            fileData.forEach(object=>{
+                array.push(object);
+            })
+        })
+        array = orderArrayByDate(array);
+        printRegister(array);
     });
 }
 const balance = () => {
