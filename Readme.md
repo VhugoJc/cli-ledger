@@ -1,62 +1,50 @@
-# CLI-ledger using Inquirer
+# CLI Ledger
 
-This is a command line interface (CLI) tool built using Node.js that allows users to keep track of their expenses and income using a ledger. The tool is designed to be simple and easy to use, with a user-friendly interface provided by the Inquirer dependency.
+CLI Ledger is a command-line interface (CLI) application built with Node.js that allows you to keep track of your personal expenses. You can view your balance, generate reports, and sort transactions by date.
 
 ## Installation
 
-To use this tool, you must have Node.js installed on your system. You can then install the required dependencies by running the following command in your terminal:
+Node **v18.16.0**
+To use CLI Ledger, you must have Node.js installed on your computer. Once you have installed Node.js, follow these steps:
+
+1. Clone this repository:
 
 ```
+git clone https://github.com/VhugoJc/cli-ledger.git
+```
+
+2. Install the dependencies:
+```
+cd cli-ledger
 npm install
 ```
 
 ## Usage
 
-To use the tool, navigate to the project directory in your terminal and run the following command:
+To start using CLI Ledger, open your terminal and navigate to the cli-ledger directory. From there, you can run the following commands:
 
+- `npm start balance [file]`: displays your current balance
+- `npm start register [file] [--sort=d]`: displays a register of all transactions, sorted by date or amount
+- `npm start print [file]`: generates a report of your transactions
+- `npm start --help`: displays help information
 
-```
-npm start
-```
+The [file] argument is optional and specifies the file where the transactions will be stored. If no file is specified, CLI Ledger will use the default file ledger.json.
 
-This will start the CLI interface, and you will be prompted to enter various details about your expenses and income. The tool will then add these transactions to the ledger and display a summary of your current balance.
+The `balance` command displays your current balance. If a file is specified, the command will display the balance of that file.
 
-## Features
+The `register` command displays a register of all transactions. If a file is specified, the command will display the transactions of that file. The --sort flag can be used to sort the transactions by date or amount.
 
-The CLI-ledger tool includes the following features:
+The `print` command generates a report of your transactions. If a file is specified, the report will be generated for that file.
 
-### Add new transactions
+## Libraries
+CLI Ledger uses the following Node.js libraries:
 
-You can add new transactions to the ledger by selecting the "Add transaction" option from the main menu. You will be prompted to enter the transaction amount, category, and date.
-
-### View summary
-
-You can view a summary of your current balance by selecting the "View balance" option from the main menu. The tool will display your current balance, as well as the total income and expenses for the current month.
-
-### View detailed report
-
-You can view a detailed report of all your transactions by selecting the "View report" option from the main menu. The tool will display a table with all the transactions in the ledger, sorted by date.
-
-### Search transactions
-
-You can search for transactions by date or category by selecting the "Search transactions" option from the main menu. You will be prompted to enter the search criteria, and the tool will display all transactions that match your search.
-
-### Delete transactions
-
-You can delete transactions by selecting the "Delete transaction" option from the main menu. You will be prompted to enter the transaction ID of the transaction you want to delete, and the tool will remove it from the ledger.
-
-## Dependencies
-
-This project relies on the following dependencies:
-
-- Inquirer: provides the user interface for the CLI tool.
-- Moment.js: used for formatting and manipulating dates in the ledger.
-- Chalk: used for adding color to the CLI output.
-
+- `yargs`: A library that makes it easy to parse command-line arguments.
+- `colors`: A library that adds color to the terminal output.
 ## Contributing
 
-If you would like to contribute to this project, feel free to submit a pull request or open an issue on GitHub.
+If you find a bug or want to suggest a new feature, please open an issue on GitHub. Pull requests are also welcome.
 
 ## License
 
-This project is licensed under the MIT License. See the LICENSE file for more information.
+This project is licensed under the MIT License. See the LICENSE file for details.
