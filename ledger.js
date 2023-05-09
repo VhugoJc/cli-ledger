@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 const yargs = require('yargs/yargs')
 const { hideBin } = require('yargs/helpers')
-const { register, balance , print} = require('./helpers/files')
+const { register, balance , print} = require('./helpers/inputs')
 const argv = yargs(hideBin(process.argv)).argv
 
 const main = () => {

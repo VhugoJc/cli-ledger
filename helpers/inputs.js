@@ -2,7 +2,7 @@ const fs = require('fs');
 const path = require('path');
 const { getDataFromFile, orderArrayByDate } = require('../middlewares/FilesData');
 const { registerOutput, printOutput, balanceOutput } = require('./outputs');
-const { getAllFilesData } = require('./data');
+const { getAllFilesData } = require('./dataFiles');
 
 
 

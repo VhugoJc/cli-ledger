@@ -2,10 +2,10 @@
   "name": "cli-ledger",
   "version": "1.0.0",
   "description": "This is a command line interface (CLI) tool built using Node.js that allows users to keep track of their expenses and income using a ledger. The tool is designed to be simple and easy to use, with a user-friendly interface provided by the Inquirer dependency.",
-  "main": "app.js",
+  "main": "ledger.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node app.js"
+    "start": "node ledger.js"
   },
   "author": "",
   "license": "ISC",
