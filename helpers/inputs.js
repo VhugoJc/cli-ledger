@@ -1,3 +1,4 @@
+// Import required modules and functions
 const fs = require('fs');
 const path = require('path');
 const { getDataFromFile, orderArrayByDate } = require('../middlewares/FilesData');
@@ -7,7 +8,7 @@ const { getAllFilesData } = require('./dataFiles');
 
 
 const register = (argv) => {
-    
+    // This function reads data from specified files, processes it, and generates a register output
     getAllFilesData(argv.file,(files)=>{
         let array = [] ; 
         files.forEach(file=>{ 
@@ -24,6 +25,7 @@ const register = (argv) => {
         registerOutput(array);
     });
 }
+// This function reads data from specified files, processes it, and generates a balance output
 const balance = (argv) => {
     getAllFilesData(argv.file,(files)=>{
         let array = [] ; 
@@ -40,6 +42,7 @@ const balance = (argv) => {
         balanceOutput(array);
     })
 }
+// This function reads data from specified files, processes it, and generates a print output
 const print = (argv) => {
     console.log(argv);
     getAllFilesData(argv.file,(files)=>{
@@ -55,6 +58,7 @@ const print = (argv) => {
     });
 }
 
+// Export the functions
 module.exports = {
     register,
     balance,
