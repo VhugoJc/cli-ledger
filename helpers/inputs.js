@@ -44,7 +44,6 @@ const balance = (argv) => {
 }
 // This function reads data from specified files, processes it, and generates a print output
 const print = (argv) => {
-    console.log(argv);
     getAllFilesData(argv.file,(files)=>{
         let array = [] ; 
         files.forEach(file=>{ 
